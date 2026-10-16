@@ -29,10 +29,8 @@ import java.util.logging.Logger;
  * overwritten, and every mutated value is validated before it is accepted.
  */
 public final class DuraPingConfig {
-    private static final Logger LOG = Logger.getLogger("DuraPing");
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final DuraPingConfig INSTANCE = defaults();
-
+    // NOTE: constants must stay above INSTANCE: the singleton is built from
+    // them during class initialization, and statics initialize in order.
     /** Default ordinary thresholds: warn at 10 and at 3 remaining. */
     public static final List<Integer> DEFAULT_THRESHOLDS = List.of(10, 3);
     /** Default critical countdown: 3, 2, 1. */
@@ -44,6 +42,10 @@ public final class DuraPingConfig {
     public static final String DEFAULT_PREFIX = "[DuraPing]";
     public static final String DEFAULT_WARNING_COLOR = "YELLOW";
     public static final String DEFAULT_CRITICAL_COLOR = "RED";
+
+    private static final Logger LOG = Logger.getLogger("DuraPing");
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final DuraPingConfig INSTANCE = defaults();
 
     public volatile boolean enabled = true;
     public volatile List<Integer> thresholds = new ArrayList<>(DEFAULT_THRESHOLDS);
