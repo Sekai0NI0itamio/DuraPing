@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "duraping",
+  "version": "${version}",
+  "name": "DuraPing",
+  "description": "Tiny client-side mod that warns in chat when tools, weapons, or armor run low on durability.",
+  "authors": [
+    "Sekai0NI0itamio"
+  ],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.duraping.DuraPingMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  }
+}
