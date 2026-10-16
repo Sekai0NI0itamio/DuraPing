@@ -3,6 +3,8 @@ build/
 run/
 out/
 *.jar
+# The Gradle wrapper jar must be committed or CI cannot bootstrap Gradle.
+!gradle/wrapper/gradle-wrapper.jar
 .DS_Store/
 .idea/
 *.iml/
